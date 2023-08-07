@@ -1,0 +1,61 @@
+.slider-box {
+    display: flex;
+    align-items: center;
+}
+
+.slider-img-box img {
+    border: 3px solid rgba(249, 249, 249, 0.1);
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.69) 0px 26px 30px -28px, rgba(0, 0, 0, 0.71) 0px 16px 10px -5px;
+    overflow: hidden;
+}
+
+.slider-subtitle {
+    margin-top: 16px;
+    font-size: medium;
+    line-height: 1.4;
+    color: rgba(249, 249, 249, 0.9);
+}
+
+.slider-btns {
+    display: flex;
+    margin-bottom: 14px;
+}
+
+.play-btn {
+    height: 56px;
+    display: flex;
+    align-items: center;
+    font-size: 15px;
+    padding: 0 18px;
+    margin-right: 22px;
+    border: none;
+    border-radius: 4px;
+    background: rgb(249, 249, 249);
+    letter-spacing: 1.8px;
+    cursor: pointer;
+}
+
+.play-btn:hover {
+    background: rgb(198, 198, 198);
+}
+
+.trailer-btn {
+    height: 56px;
+    display: flex;
+    align-items: center;
+    font-size: 15px;
+    padding: 0 18px;
+    margin-right: 22px;
+    border: none;
+    border-radius: 4px;
+    background: rgba(0, 0, 0, 0.3);
+    letter-spacing: 1.8px;
+    cursor: pointer;
+    border: 1px solid rgb(249, 249, 249);
+    color: rgb(249, 249, 249);
+}
+
+.trailer-btn:hover {
+    background: rgb(198, 198, 198);
+}

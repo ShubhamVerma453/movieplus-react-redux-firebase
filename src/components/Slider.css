@@ -1,0 +1,7 @@
+.carousel-control-next, .carousel-control-prev{
+    width: auto;
+}
+
+.carousel-item{
+    padding: 3% 4%;
+}
