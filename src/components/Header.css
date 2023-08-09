@@ -1,5 +1,6 @@
 .navbar {
     background: black !important;
+    height: 60px;
 }
 
 .navbar-brand{
