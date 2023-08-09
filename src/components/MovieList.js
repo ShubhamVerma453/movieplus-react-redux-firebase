@@ -33,7 +33,7 @@ export default function MovieList(props) {
                         {
                             movieList.map(movie => {
                                 return (
-                                    <div className="wrap">
+                                    <div key={movie.id} className="wrap">
                                         <img src={`${imgBase}${movie.poster_path}`} alt="box ref" />
                                     </div>
                                 )
