@@ -1,18 +1,15 @@
-import './Login.css'
-import { auth, provider } from '../firebase'
-import { signInWithPopup } from 'firebase/auth'
-import { useState } from 'react';
-import { useNavigate } from "react-router-dom";
+import './Login.css';
+import { auth, provider } from '../firebase';
+import { signInWithPopup } from 'firebase/auth';
+import { useSelector } from 'react-redux';
+import { selectUser } from '../features/counter/userSlice';
 
 export default function Login() {
-    const [user, setUser] = useState(null);
-    const navigator = useNavigate();
+    let isUser = useSelector(selectUser);
 
     function handelSignin() {
         signInWithPopup(auth, provider).then((result) => {
             console.log(result.user);
-            setUser(result.user);
-            navigator(`/`);
         }).catch((error) => {
             console.log(error);
         });
