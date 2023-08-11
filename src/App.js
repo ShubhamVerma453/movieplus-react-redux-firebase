@@ -30,15 +30,15 @@ function App() {
 
   return (
     <div className="App">
-      <Header />
-      {isUser == null ? <Login /> :
-        <Router>
+      <Router>
+        <Header />
+        {isUser == null ? <Login /> :
           <Routes>
             <Route exact path="/" element={<Home />} />
             <Route path="/detail/:id" element={<Detail />} />
           </Routes>
-        </Router>
-      }
+        }
+      </Router>
     </div>
   );
 }

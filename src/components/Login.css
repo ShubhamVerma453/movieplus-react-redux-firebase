@@ -1,11 +1,11 @@
-#login{
-    padding : 0 calc(3.5vw + 5px);
-min-height: calc(100vh - 70px);
-position: relative;
-overflow: hidden; /* This will prevent content from overflowing over the background image */
-z-index: 0; /* To ensure the background image is behind the content */
-display: flex;
-justify-content: center;
+#login {
+    padding: 0 calc(3.5vw + 5px);
+    min-height: calc(100vh - 70px);
+    position: relative;
+    overflow: hidden;
+    z-index: 0;
+    display: flex;
+    justify-content: center;
 }
 
 #login::before {
@@ -22,16 +22,14 @@ justify-content: center;
     z-index: -1;
 }
 
-
-.login-content{
+.login-content {
     width: 60%;
     max-width: 650px;
     margin-top: 80px;
     height: fit-content;
 }
 
-
-.sing-up{
+.sing-up {
     width: 100%;
     padding: 15px 0;
     background: #0063e5;
@@ -43,17 +41,25 @@ justify-content: center;
     cursor: pointer;
     transition: all 250ms ease;
 }
-.sing-up:hover{
-        transform: scale(1.05);
-    }
 
-.login-discription{
+.sing-up:hover {
+    transform: scale(1.05);
+}
+
+.login-discription {
     margin-top: 10px;
     font-size: 15px;
     text-align: center;
     color: rgba(249, 249, 249, 0.8);
 }
-.CTAtwo{
+
+.CTA {
+    text-align: center;
+    font-size: 2.7rem;
+    font-weight: bold;
+}
+
+.CTAtwo {
     width: 100%;
     height: 100%;
     margin-top: 5px;

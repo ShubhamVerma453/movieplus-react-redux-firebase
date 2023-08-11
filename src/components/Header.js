@@ -3,28 +3,29 @@ import { useSelector } from 'react-redux'
 import { selectUser } from '../features/counter/userSlice'
 import { signOut } from 'firebase/auth';
 import { auth } from '../firebase';
+import { Link } from 'react-router-dom';
 
 export default function Header() {
-    let isUser =  useSelector(selectUser);
+    let isUser = useSelector(selectUser);
 
-    function handelLogout(){
+    function handelLogout() {
         signOut(auth).then(() => {
             console.log("signOut");
-          }).catch((error) => {
+        }).catch((error) => {
             console.log(error);
-          });
+        });
     }
 
     return (
         <nav className="navbar bg-dark navbar-expand-md" data-bs-theme="dark">
             <div className="container-fluid">
-                <a className="navbar-brand" href="#">
+                <Link className="navbar-brand" to="/">
                     <img className="logo" src="images/logo.png" alt="logo" />
                     <span id="brandName">Movie+</span>
-                </a>
+                </Link>
                 {isUser &&
                     <img onClick={handelLogout} className='userImg' src={isUser.photoURL} alt='userImg' />
-                    }
+                }
             </div>
         </nav>
     )
