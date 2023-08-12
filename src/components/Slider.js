@@ -1,28 +1,43 @@
+import { useSelector } from 'react-redux';
 import SlidePage from './SlidePage';
 import './Slider.css';
+import { selectSlides } from '../features/counter/sliderSlice';
 
 export default function Slider() {
+    let isSlides = useSelector(selectSlides);
+    // console.log(isSlides);
     return (
         <div id="carouselExampleCaptions" className="carousel slide" data-bs-ride="carousel">
             <div className="carousel-indicators">
-                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" className="active" aria-current="true" aria-label="Slide 1"></button>
-                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                {isSlides &&
+                    Object.keys(isSlides).map((key, index) => {
+                        return (
+                            <button key={key} type="button"
+                                data-bs-target="#carouselExampleCaptions"
+                                data-bs-slide-to={index}
+                                className={index === 0 ? "active" : ""}
+                                aria-current={index === 0 ? "true" : undefined}
+                                aria-label={`Slide ${index + 1}`}
+                            ></button>
+                        )
+                    })
+                }
             </div>
             <div className="carousel-inner">
-                <div className="carousel-item active">
-                    <SlidePage
-                        imgSrc="https://image.tmdb.org/t/p/w1280/5YZbUmjbMa3ClvSW1Wj3D6XGolb.jpg" />
-                </div>
-                <div className="carousel-item">
-                    <SlidePage
-                        imgSrc="https://image.tmdb.org/t/p/w1280/uLtVbjvS1O7gXL8lUOwsFOH4man.jpg" classNameName="d-block w-100" alt="..." />
-
-                </div>
-                <div className="carousel-item">
-                    <SlidePage
-                        imgSrc="https://image.tmdb.org/t/p/w1280/aJn9XeesqsrSLKcHfHP4u5985hn.jpg" classNameName="d-block w-100" alt="..." />
-                </div>
+                {isSlides &&
+                    Object.keys(isSlides).map((key, index) => {
+                        return (
+                            <div key={key} className={index == 0 ? "carousel-item active" : "carousel-item"}>
+                                <SlidePage
+                                    imgSrc={isSlides[key].backdrop_path}
+                                    id={key}
+                                    dis={isSlides[key].overview}
+                                    title={isSlides[key].title}
+                                />
+                            </div>
+                        )
+                    })
+                }
             </div>
             <button className="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
                 <span className="carousel-control-prev-icon" aria-hidden="true"></span>
