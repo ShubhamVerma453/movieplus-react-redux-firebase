@@ -1,0 +1,22 @@
+.alert-container {
+    min-width: 200px;
+    max-width: 350px;
+    width: 40vw;
+    padding: 1rem;
+    background-color: rgb(54, 74, 255);
+    display: flex;
+    justify-content: space-between;
+    border-radius: 10px;
+    position: absolute;
+    bottom: 50px;
+    right: 20px;
+    z-index: 10;
+    transition: transform 0.3s ease;
+}
+
+.alert-close-btn {
+    font-weight: bold;
+    font-size: 18px;
+    margin: 0 5px;
+    cursor: pointer;
+}

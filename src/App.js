@@ -8,6 +8,7 @@ import Header from './components/Header';
 import { auth } from './firebase';
 import { useDispatch, useSelector } from 'react-redux';
 import { login, logout, selectUser } from './features/counter/userSlice';
+import Alert from './components/Alert';
 
 function App() {
   const dispatch = useDispatch();
@@ -38,6 +39,7 @@ function App() {
             <Route path="/detail/:id" element={<Detail />} />
           </Routes>
         }
+        <Alert />
       </Router>
     </div>
   );
