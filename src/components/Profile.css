@@ -1,0 +1,48 @@
+.userImg {
+    cursor: pointer;
+    height: 40px;
+    width: 40px;
+    border-radius: 25%;
+}
+
+.profile-content {
+    display: flex;
+    flex-direction: row;
+    padding: 0.5rem;
+}
+
+.profile-content img {
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.profile-detail {
+    padding: 0 24px;
+    line-height: 30px;
+    font-size: 20px;
+    overflow-wrap: anywhere;
+}
+
+.detail {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.logout-btn {
+    height: 40px;
+    display: flex;
+    align-items: center;
+    font-size: 15px;
+    padding: 0 18px;
+    margin: 5px auto;
+    border-radius: 4px;
+    letter-spacing: 1.8px;
+    cursor: pointer;
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid rgb(249, 249, 249);
+    color: rgb(249, 249, 249);
+}
+
+.logout-btn:hover {
+    background: rgb(198, 198, 198);
+}

@@ -21,11 +21,3 @@
     display: flex;
     align-items: center;
 }
-
-.userImg {
-    cursor: pointer;
-    height: 40px;
-    width: 40px;
-    border-radius: 25%;
-    margin-right: 15px;
-}
