@@ -14,24 +14,27 @@ export default function Search() {
     }
 
     useEffect(() => {
-        const fetchData = async () => {
-            try {
-                let searchTerm = search.replace(" ", "+");
-                const response = await TMDB.get("/search/movie", {
-                    params: {
-                        query: searchTerm
-                    }
-                })
-                setResult(response.data.results);
-            } catch (error) {
-                console.log(error);
+        // this setTimeout helps to achive debouncing
+        let timer = setTimeout(()=>{                 
+            const fetchData = async () => {
+                try {
+                    let searchTerm = search.replace(" ", "+");
+                    const response = await TMDB.get("/search/movie", {
+                        params: {
+                            query: searchTerm
+                        }
+                    })
+                    setResult(response.data.results);
+                } catch (error) {
+                    console.log(error);
+                }
             }
-        }
-        if (search.length === 0) {
-            setResult([]);
-        }
-        fetchData();
-        return () => { }
+            if (search.length === 0) {
+                setResult([]);
+            }
+            fetchData();
+        },800)
+        return () => clearTimeout(timer);
     }, [search]);
 
     return (
