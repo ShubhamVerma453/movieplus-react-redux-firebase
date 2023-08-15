@@ -15,7 +15,7 @@ export default function Search() {
 
     useEffect(() => {
         // this setTimeout helps to achive debouncing
-        let timer = setTimeout(()=>{                 
+        let timer = setTimeout(() => {
             const fetchData = async () => {
                 try {
                     let searchTerm = search.replace(" ", "+");
@@ -33,7 +33,7 @@ export default function Search() {
                 setResult([]);
             }
             fetchData();
-        },800)
+        }, 800)
         return () => clearTimeout(timer);
     }, [search]);
 
@@ -57,7 +57,9 @@ export default function Search() {
                                             <li key={movie.id} data-bs-dismiss="modal" onClick={() => {
                                                 setSearch("");
                                                 handleClick(movie.id)
-                                            }} className="dropdown-item">{movie.title}</li>
+                                            }} className="dropdown-item">
+                                                {movie.title} - {movie.release_date ? new Date(movie.release_date).getFullYear() : "N/A"}
+                                            </li>
                                         )
                                     })
                                 }

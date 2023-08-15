@@ -3,3 +3,8 @@
     cursor: pointer;
     font-size: larger;
 }
+
+.dropdown-menu{
+    width: 100%;
+    overflow: scroll;
+}
