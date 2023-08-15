@@ -1,9 +1,9 @@
 import { useNavigate } from 'react-router-dom';
 import './SlidePage.css'
 import { useDispatch } from 'react-redux';
-import { closeAlert, showAlert } from '../features/counter/alertSlice';
+import { showAlert } from '../features/counter/alertSlice';
 
-export default function ({ imgSrc, id, dis, title }) {
+export default function SlidePage({ imgSrc, id, dis, title }) {
     const baseImgUrl = "https://image.tmdb.org/t/p/w1280";
     const dispatch = useDispatch();
     const navigator = useNavigate();
@@ -13,9 +13,7 @@ export default function ({ imgSrc, id, dis, title }) {
     }
     function handelTrailerClick() {
         dispatch(showAlert());
-        setTimeout(() => {
-            dispatch(closeAlert());
-        }, 2000)
+
     }
 
     return (

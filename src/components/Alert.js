@@ -1,21 +1,33 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { closeAlert, selectAlert } from '../features/counter/alertSlice';
 import './Alert.css'
+import { useEffect } from 'react';
 
 export default function Alert() {
-    const dispatch = useDispatch();
-    let alertStyle = useSelector(selectAlert);
+  const dispatch = useDispatch();
+  let showAlert = useSelector(selectAlert);
 
-    function handeClose() {
+  useEffect(() => {
+    if (showAlert) {
+      const timer = setTimeout(() => {
         dispatch(closeAlert());
-    }
+      }, 3000);
 
-    return (
-        <div className="alert-container" style={alertStyle}>
-            <span className="alert-msg">
-                Stay tune, We are working on it!
-            </span>
-            <span className="alert-close-btn" onClick={handeClose}>X</span>
-        </div>
+      return () => clearTimeout(timer);
+    }
+  }, [showAlert, dispatch]);
+
+  return (
+    showAlert && (
+      <div className="alert-container" >
+        <span className="alert-msg">
+          Stay tune, We are working on it!
+        </span>
+        <span className="alert-close-btn" onClick={() => dispatch(closeAlert())}>X</span>
+      </div>
     )
+  )
 }
+
+// onClick={handeClose}
+// style={alertStyle}

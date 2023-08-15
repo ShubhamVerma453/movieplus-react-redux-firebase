@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
-  alert: { transform: 'translateX(450px)' }
+  alert: false,
 };
 
 export const alertSlice = createSlice({
@@ -9,10 +9,10 @@ export const alertSlice = createSlice({
   initialState,
   reducers: {
     showAlert: (state) => {
-      state.alert = { transform: 'translateX(0px)' };
+      state.alert = true;
     },
     closeAlert: (state) => {
-      state.alert = { transform: 'translateX(450px)' };
+      state.alert = false;
     }
   }
 });
