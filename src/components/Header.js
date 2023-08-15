@@ -4,6 +4,7 @@ import { selectUser } from '../features/counter/userSlice'
 import { signOut } from 'firebase/auth';
 import { auth } from '../firebase';
 import { Link } from 'react-router-dom';
+import Search from './Serach';
 
 export default function Header() {
     let isUser = useSelector(selectUser);
@@ -24,7 +25,10 @@ export default function Header() {
                     <span id="brandName">Movie+</span>
                 </Link>
                 {isUser &&
-                    <img onClick={handelLogout} className='userImg' src={isUser.photoURL} alt='userImg' />
+                    <div className='header-icons'>
+                        <Search />
+                        <img onClick={handelLogout} className='userImg' src={isUser.photoURL} alt='userImg' />
+                    </div>
                 }
             </div>
         </nav>
