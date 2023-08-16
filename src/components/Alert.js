@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { closeAlert, selectAlert } from '../features/counter/alertSlice';
-import './Alert.css'
+import './css/Alert.css'
 import { useEffect } from 'react';
 
 export default function Alert() {

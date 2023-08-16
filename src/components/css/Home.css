@@ -11,7 +11,7 @@
     left: 0;
     width: 100%; /* Set width to cover the entire viewport */
     height: 100%; /* Set height to cover the entire viewport */
-    background-image: url('../../public/images/home-background.png');
+    background-image: url('../../../public/images/home-background.png');
     background-repeat: no-repeat;
     background-size: cover;
     z-index: -1;

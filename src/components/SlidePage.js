@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router-dom';
-import './SlidePage.css'
+import './css/SlidePage.css'
 import { useDispatch } from 'react-redux';
 import { showAlert } from '../features/counter/alertSlice';
 

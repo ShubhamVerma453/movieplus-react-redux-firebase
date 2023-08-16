@@ -1,4 +1,4 @@
-import './Home.css'
+import './css/Home.css'
 import Slider from './Slider'
 import Movies from './Movies'
 

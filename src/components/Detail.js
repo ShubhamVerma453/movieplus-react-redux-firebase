@@ -1,4 +1,4 @@
-import './Detail.css'
+import './css/Detail.css'
 import { useState, useEffect } from 'react';
 import { useParams } from "react-router-dom";
 import TMDB from '../api/TMDB';

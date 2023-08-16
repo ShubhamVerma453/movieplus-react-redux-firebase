@@ -1,4 +1,4 @@
-import './Profile.css';
+import './css/Profile.css';
 import { useSelector } from 'react-redux';
 import { selectUser } from '../features/counter/userSlice';
 import { signOut } from 'firebase/auth';

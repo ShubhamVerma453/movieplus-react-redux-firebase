@@ -1,6 +1,6 @@
 import { useSelector } from 'react-redux';
 import SlidePage from './SlidePage';
-import './Slider.css';
+import './css/Slider.css';
 import { selectSlides } from '../features/counter/sliderSlice';
 
 export default function Slider() {

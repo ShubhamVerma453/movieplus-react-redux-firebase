@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import './Search.css'
+import './css/Search.css'
 import TMDB from '../api/TMDB';
 import { useNavigate } from 'react-router-dom';
 
