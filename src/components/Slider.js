@@ -27,7 +27,7 @@ export default function Slider() {
                 {isSlides &&
                     Object.keys(isSlides).map((key, index) => {
                         return (
-                            <div key={key} className={index == 0 ? "carousel-item active" : "carousel-item"}>
+                            <div key={key} className={index === 0 ? "carousel-item active" : "carousel-item"}>
                                 <SlidePage
                                     imgSrc={isSlides[key].backdrop_path}
                                     id={key}

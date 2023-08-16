@@ -14,7 +14,7 @@ function App() {
   let isUser = useSelector(selectUser);
 
   useEffect(() => {
-    const unscribs = auth.onAuthStateChanged((userAuth) => {
+    const unsubscribe = auth.onAuthStateChanged((userAuth) => {
       if (userAuth) {
         dispatch(login({
           name: userAuth.displayName,
@@ -25,8 +25,10 @@ function App() {
         dispatch(logout())
       }
     })
-    return unscribs;
-  }, []);
+    return () => {
+      unsubscribe(); // Cleanup function to unsubscribe from the listener
+    };
+  }, [dispatch]);
 
   return (
     <div className="App">
