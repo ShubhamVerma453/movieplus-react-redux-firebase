@@ -1,19 +1,14 @@
 import './css/MovieList.css'
 import { useState, useEffect } from 'react'
-import { useNavigate } from "react-router-dom";
 import TMDB from '../api/TMDB';
 import { useDispatch } from 'react-redux';
 import { addSlide } from '../features/counter/sliderSlice';
+import MovieBox from './MovieBox';
 
 export default function MovieList(props) {
     const [movieList, setMovieList] = useState([]);
-    const imgBase = "https://image.tmdb.org/t/p/w780";
     const dispatch = useDispatch();
 
-    const navigator = useNavigate();
-    function handleClick(id) {
-        navigator(`detail/${id}`);
-    }
     // console.log(props.isSlider);
     useEffect(() => {
         const fetchData = async () => {
@@ -49,9 +44,11 @@ export default function MovieList(props) {
                         {
                             movieList.map(movie => {
                                 return (
-                                    <div key={movie.id} onClick={() => handleClick(movie.id)} className="wrap">
-                                        <img src={`${imgBase}${movie.poster_path}`} alt="box ref" />
-                                    </div>
+                                    <MovieBox
+                                        key={movie.id}
+                                        movieId={movie.id}
+                                        poster={movie.poster_path}
+                                    />
                                 )
                             })
                         }

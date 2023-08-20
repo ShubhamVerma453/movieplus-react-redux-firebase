@@ -1,0 +1,24 @@
+#watchlist-home::before {
+    content: '';
+    position: fixed; /* Use fixed positioning for the background */
+    top: 0;
+    right: 0;
+    left: 0;
+    width: 100%; /* Set width to cover the entire viewport */
+    height: 100%; /* Set height to cover the entire viewport */
+    background-image: url('../../../public/images/home-background.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    z-index: -1;
+}
+
+#watchlist-home{
+    padding: 1% 4%;
+}
+
+.watchlist-content{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+}

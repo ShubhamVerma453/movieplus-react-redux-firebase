@@ -1,0 +1,23 @@
+.wrap {
+    display: inline-block;
+    margin-right: 30px;
+    width: 10rem;
+    height: auto;
+    border: 3px solid rgba(249, 249, 249, 0.1);
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.69) 0px 26px 30px -28px, rgba(0, 0, 0, 0.71) 0px 16px 10px -5px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: all 250ms ease;
+}
+
+.wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.wrap:hover {
+    transform: scale(1.05);
+    border: 3px solid rgba(249, 249, 249, 0.5);
+}

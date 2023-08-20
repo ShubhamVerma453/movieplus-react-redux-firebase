@@ -39,7 +39,7 @@ export default function Search() {
 
     return (
         <>
-            <span className="search-icon" data-bs-toggle="modal" data-bs-target="#searchModal">
+            <span className="search-icon" data-bs-toggle="modal" data-bs-target="#searchModal" title='Search'>
                 <i className="fas fa-search fa-lg" style={{ color: "#ffffff" }}></i>
             </span>
 

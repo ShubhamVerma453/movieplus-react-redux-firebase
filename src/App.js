@@ -8,6 +8,7 @@ import { auth } from './firebase';
 import { useDispatch, useSelector } from 'react-redux';
 import { login, logout, selectUser } from './features/counter/userSlice';
 import Alert from './components/Alert';
+import Watchlist from './components/Watchlist';
 
 function App() {
   const dispatch = useDispatch();
@@ -38,6 +39,7 @@ function App() {
           <Routes>
             <Route exact path="/" element={<Home />} />
             <Route path="/detail/:id" element={<Detail />} />
+            <Route exact path="/watchlist" element={<Watchlist />} />
           </Routes>
         }
         <Alert />
