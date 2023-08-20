@@ -19,7 +19,6 @@ export default function Header() {
                     <div className='header-icons'>
                         <Search />
                         <Profile />
-                        {/* <img onClick={handelLogout} className='userImg' src={isUser.photoURL} alt='userImg' /> */}
                     </div>
                 }
             </div>
