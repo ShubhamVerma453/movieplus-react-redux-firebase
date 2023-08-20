@@ -2,8 +2,9 @@ import './css/Detail.css'
 import { useState, useEffect } from 'react';
 import { useParams } from "react-router-dom";
 import TMDB from '../api/TMDB';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { closeAlert, showAlert } from '../features/counter/alertSlice';
+import { addWatchlist, removeWatchlist, selectWatchlist } from '../features/counter/watchlistSlice';
 
 export default function Detail() {
     const dispatch = useDispatch();
@@ -11,6 +12,19 @@ export default function Detail() {
     const { id } = useParams();
     const [lst, setLst] = useState({});
     const [genres, setGenres] = useState([]);
+    let isWatchlist = useSelector(selectWatchlist);
+
+    function addToWatchlist() {
+        // alert("add")
+        dispatch(addWatchlist({
+            [lst.id]: { "id": lst.id, "poster": lst.poster_path }
+        }))
+    }
+
+    function removeFromWatchlist() {
+        // alert("remove")
+        dispatch(removeWatchlist(id))
+    }
 
     function handelTrailerClick() {
         dispatch(showAlert());
@@ -51,6 +65,13 @@ export default function Detail() {
                         <button className="btns trailer-btn">
                             <span onClick={handelTrailerClick}>TRAILER</span>
                         </button>
+                        <span className='watchlist-btn'>
+                            {
+                                isWatchlist[id] !== undefined ?
+                                    <i className="fa-solid fa-bookmark fa-2xl" style={{ color: "#ffffff" }} onClick={() => { removeFromWatchlist() }}></i> :
+                                    <i className="fa-regular fa-bookmark fa-2xl" style={{ color: "#ffffff" }} onClick={() => { addToWatchlist() }}></i>
+                            }
+                        </span>
                     </div>
                     <div className="sub-title">
                         <span>

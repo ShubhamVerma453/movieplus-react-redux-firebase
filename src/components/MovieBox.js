@@ -6,7 +6,7 @@ export default function MovieBox({ movieId, poster }) {
     const imgBase = "https://image.tmdb.org/t/p/w780";
     const navigator = useNavigate();
     function handleClick(id) {
-        navigator(`detail/${id}`);
+        navigator(`/detail/${id}`);
     }
 
     return (

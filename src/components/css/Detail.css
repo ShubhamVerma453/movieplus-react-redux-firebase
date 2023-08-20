@@ -1,8 +1,9 @@
-.container{
-    padding : calc(3.5vw + 5px);
+.container {
+    padding: calc(3.5vw + 5px);
     position: relative;
 }
-.backgroung{
+
+.backgroung {
     position: fixed;
     top: 60px;
     left: 0;
@@ -12,13 +13,13 @@
     opacity: 80%;
 }
 
-.backgroung img{
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
+.backgroung img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
-.title{
+.title {
     padding-top: 3rem;
     font-weight: bolder;
     letter-spacing: 1.8px;
@@ -29,7 +30,7 @@
     align-items: center;
 }
 
-.btns{
+.btns {
     height: 56px;
     display: flex;
     align-items: center;
@@ -41,28 +42,32 @@
     cursor: pointer;
 }
 
-.btns:hover{
+.btns:hover {
     background: rgb(198, 198, 198);
 }
 
-.play-btn{
+.play-btn {
     background: rgb(249, 249, 249);
     border: none;
 }
 
-.trailer-btn{
+.trailer-btn {
     background: rgba(0, 0, 0, 0.3);
     border: 1px solid rgb(249, 249, 249);
     color: rgb(249, 249, 249);
 }
 
-.sub-title{
+.watchlist-btn {
+    cursor: pointer;
+}
+
+.sub-title {
     margin-top: 26px;
     font-size: 15px;
     color: rgba(249, 249, 249, 0.8);
 }
 
-.discription{
+.discription {
     margin-top: 16px;
     max-width: 70%;
     font-size: 18px;
