@@ -13,6 +13,12 @@ export default function Detail() {
     const [lst, setLst] = useState({});
     const [genres, setGenres] = useState([]);
     let isWatchlist = useSelector(selectWatchlist);
+    const [shake, setShake] = useState(false);
+
+    const animate = () => {
+        setShake(true);
+        setTimeout(() => setShake(false), 1000);
+    }
 
     function addToWatchlist() {
         // alert("add")
@@ -65,7 +71,7 @@ export default function Detail() {
                         <button className="btns trailer-btn">
                             <span onClick={handelTrailerClick}>TRAILER</span>
                         </button>
-                        <span className='watchlist-btn'>
+                        <span className={shake ? `shake watchlist-btn` : "watchlist-btn"} onClick={animate}>
                             {
                                 isWatchlist[id] !== undefined ?
                                     <i className="fa-solid fa-bookmark fa-2xl" style={{ color: "#ffffff" }} onClick={() => { removeFromWatchlist() }}></i> :
