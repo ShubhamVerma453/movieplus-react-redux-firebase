@@ -1,13 +1,16 @@
 import './css/Profile.css';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { selectUser } from '../features/counter/userSlice';
 import { signOut } from 'firebase/auth';
 import { auth } from '../firebase';
+import { emptyWatchlist } from '../features/counter/watchlistSlice';
 
 export default function Profile() {
     let isUser = useSelector(selectUser);
+    const dispatch = useDispatch();
 
     function handelLogout() {
+        dispatch(emptyWatchlist());
         signOut(auth).then(() => {
             console.log("signOut");
         }).catch((error) => {

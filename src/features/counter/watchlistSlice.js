@@ -13,10 +13,13 @@ export const WatchlistSlice = createSlice({
         },
         removeWatchlist: (state, action) => {
             delete state.watchlist[action.payload];
+        },
+        emptyWatchlist: (state) => {
+            state.watchlist = {};
         }
     }
 });
 
-export const { addWatchlist, removeWatchlist } = WatchlistSlice.actions;
+export const { addWatchlist, removeWatchlist, emptyWatchlist } = WatchlistSlice.actions;
 export const selectWatchlist = (state) => state.watchlist.watchlist;
 export default WatchlistSlice.reducer;
