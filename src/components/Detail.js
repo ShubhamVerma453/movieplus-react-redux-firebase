@@ -22,8 +22,9 @@ export default function Detail() {
 
     function addToWatchlist() {
         // alert("add")
+        let genreNames = genres.map(genre => genre.name)
         dispatch(addWatchlist({
-            [lst.id]: { "id": lst.id, "poster": lst.poster_path }
+            [lst.id]: { "id": lst.id, "name": lst.title, "poster": lst.poster_path, "genres": genreNames, "duration": lst.runtime }
         }))
     }
 

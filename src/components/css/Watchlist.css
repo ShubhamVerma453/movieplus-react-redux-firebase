@@ -16,9 +16,66 @@
     padding: 1% 4%;
 }
 
+.watchlist-header{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.watchlist-controls{
+    display: flex;
+    gap: 10px;
+}
+
+.sort-dropdown{
+    width: 150px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    height: 42px;
+}
+
+.sort-dropdown select {
+    appearance: none; /* Remove default appearance */
+    width: inherit;
+    color: #ccc;
+    height: -webkit-fill-available;
+    padding: 5%;
+    background: transparent;
+    border: none;
+}
+
+.filter-dropdown{
+    width: 150px;
+}
+
 .watchlist-content{
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     gap: 30px;
+}
+
+/* modifying default css of multiSelect */
+#search_input{
+    width: 100%;
+}
+
+#search_input::placeholder{
+    color: #ccc;
+}
+
+.optionListContainer{
+    color: black !important;
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.multiSelectContainer ul::-webkit-scrollbar {
+    display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.multiSelectContainer ul {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
 }
