@@ -2,7 +2,7 @@ import { useSelector } from 'react-redux';
 import { selectWatchlist } from '../features/counter/watchlistSlice';
 import MovieBox from './MovieBox'
 import './css/Watchlist.css'
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Multiselect from 'multiselect-react-dropdown';
 
 export default function Watchlist() {
@@ -12,7 +12,8 @@ export default function Watchlist() {
             return list[key];
         })
     }
-    const [watchlist, setWatchlist] = useState(getWatchlist());
+    const orginalWatchlist = getWatchlist();
+    const [watchlist, setWatchlist] = useState(orginalWatchlist);
     const [selectedGenra, setSelectedGenra] = useState([]);
 
     const availableGenra = watchlist.reduce((total, curr) => {
@@ -24,7 +25,7 @@ export default function Watchlist() {
 
     const changeSort = (event) => {
         let sort = event.target.value;
-        if (sort === "all") return setWatchlist(getWatchlist());
+        if (sort === "all") return setWatchlist(orginalWatchlist);
         let sorted = [...watchlist].sort((a, b) => {
             if (sort === "dec")
                 return a.name > b.name ? -1 : 1;
@@ -35,15 +36,12 @@ export default function Watchlist() {
         setWatchlist(sorted);
     };
 
-    // const handleTypeChange = (event) => {
-    //     const selectedType = event.target.value;
-    //     console.log(selectedType);
-    //     // if (selectedTypes.includes(selectedType)) {
-    //     //   setSelectedTypes(selectedTypes.filter(type => type !== selectedType));
-    //     // } else {
-    //     //   setSelectedTypes([...selectedTypes, selectedType]);
-    //     // }
-    // };
+    useEffect(() => {
+        if (selectedGenra.length === 0) return setWatchlist(orginalWatchlist);
+
+        const filteredList = orginalWatchlist.filter(movie => selectedGenra.every(genre => movie.genres.includes(genre)))
+        setWatchlist(filteredList);
+    }, [selectedGenra])
 
     return (
         <div id='watchlist-home'>
@@ -65,8 +63,8 @@ export default function Watchlist() {
                             showCheckbox={true}
                             hideSelectedList
                             placeholder={selectedGenra.length !== 0 ? selectedGenra.length + " selected" : "Filter genra"}
-                            onSelect={(e) => { console.log(e); setSelectedGenra([...e]) }}
-                            onRemove={(e) => { console.log(e); setSelectedGenra([...e]) }}
+                            onSelect={(e) => { setSelectedGenra([...e]) }}
+                            onRemove={(e) => { setSelectedGenra([...e]) }}
                         />
                     </div>
                 </div>
